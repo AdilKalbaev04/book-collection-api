@@ -1,0 +1,96 @@
+1. Регистрация пользователя
+Метод: POST
+URL: http://localhost:3000/auth/register
+Headers: Content-Type: application/json
+Body (raw, JSON):
+{
+    "username": "testuser",
+    "password": "password123",
+    "email": "testuser@example.com"
+}
+
+2. Логин пользователя
+Метод: POST
+URL: http://localhost:3000/auth/login
+Headers: Content-Type: application/json
+Body (raw, JSON):
+{
+    "username": "testuser",
+    "password": "password123"
+}
+Ответ:
+{
+    "token": "jwt_token"
+}
+
+3. Получение информации о текущем пользователе
+Метод: GET
+URL: http://localhost:3000/auth/me
+Headers:
+Authorization: Bearer jwt_token
+
+4. Добавление книги (требуется аутентификация администратора)
+Метод: POST
+URL: http://localhost:3000/books
+Headers:
+Content-Type: application/json
+Authorization: Bearer jwt_token 
+Body (raw, JSON):
+{
+    "title": "Book Title",
+    "author": "Author Name",
+    "publicationDate": "2023-01-01",
+    "genres": ["Fiction", "Adventure"]
+}
+
+
+5. Получение списка книг
+Метод: GET
+URL: http://localhost:3000/books
+
+
+6. Получение книги по ID
+Метод: GET
+URL: http://localhost:3000/books/1
+
+
+7. Обновление информации о книге (требуется аутентификация администратора)
+Метод: PUT
+URL: http://localhost:3000/books/1 (замените 1 на ID книги, которую хотите обновить)
+Headers:
+
+Content-Type: application/json
+Authorization: Bearer jwt_token
+Body (raw, JSON):
+json
+Копировать код
+{
+    "title": "Updated Book Title",
+    "author": "Updated Author Name",
+    "publicationDate": "2023-01-02",
+    "genres": ["Drama"]
+}
+
+
+8. Удаление книги (требуется аутентификация администратора)
+Метод: DELETE
+URL: http://localhost:3000/books/1 (замените 1 на ID книги, которую хотите удалить)
+Headers:
+
+Authorization: Bearer jwt_token
+
+
+9. Изменение роли пользователя (требуется аутентификация администратора)
+Метод: PUT
+URL: http://localhost:3000/users/1/role (замените 1 на ID пользователя, роль которого хотите изменить)
+Headers:
+
+Content-Type: application/json
+Authorization: Bearer jwt_token
+Body (raw, JSON):
+{
+    "role": 1
+}
+
+
+Я еще не сделал всё, что мог. Мог бы сделать намного лучше.
